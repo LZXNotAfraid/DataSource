@@ -15,9 +15,11 @@ class ProxyServer:
     speed = 0
     connect_time = 0
     survive_time = 0
-    test_time = time.time(0)
+    collect_time = None
+    test_time = None
+    hidden = False
 
-    def __init__(self, address, port, connectivity, location, http_type, speed, connect_time, survive_time, test_time):
+    def __init__(self, address, port, connectivity, location, http_type, speed, connect_time, survive_time, collect_time, test_time, hidden):
         self.address = address
         self.port = port
         self.connectivity = connectivity
@@ -26,6 +28,10 @@ class ProxyServer:
         self.speed = speed
         self.connect_time = connect_time
         self.survive_time = survive_time
+        self.collect_time = collect_time
         self.test_time = test_time
+        self.hidden = hidden
+
+
 
 
