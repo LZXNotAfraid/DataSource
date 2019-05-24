@@ -9,7 +9,6 @@ class ProxyServer:
 
     address = IP('0.0.0.0')
     port = 0
-    connectivity = -1
     location = ''
     http_type = ''
     speed = 0
@@ -19,10 +18,9 @@ class ProxyServer:
     test_time = None
     hidden = False
 
-    def __init__(self, address, port, connectivity, location, http_type, speed, connect_time, survive_time, collect_time, test_time, hidden):
+    def __init__(self, address, port, location, http_type, speed, connect_time, survive_time, collect_time, test_time, hidden):
         self.address = address
         self.port = port
-        self.connectivity = connectivity
         self.location = location
         self.http_type = http_type
         self.speed = speed
@@ -33,5 +31,23 @@ class ProxyServer:
         self.hidden = hidden
 
 
+    def __repr__(self):
+        return (f"host:{self.address}:{self.port} {self.hidden} @{self.location} "
+                f"with speed@{self.speed} test_time{self.test_time} "
+                f"connect_time@{self.connect_time} survive_time@{self.survive_time}"
+                f" collected@{self.collect_time}")
 
 
+    def toJson(self):
+        return {
+            "address": self.address,
+            "port": self.port,
+            "location": self.location,
+            "http_type": self.http_type,
+            "speed": self.speed,
+            "connect_time": self.connect_time,
+            "survive_time": self.survive_time,
+            "collect_time": self.collect_time,
+            "test_time": self.test_time,
+            "hidden": self.hidden
+        }
