@@ -4,6 +4,7 @@
 
 from IPy import IP
 import time
+import json
 
 class ProxyServer:
 
@@ -39,7 +40,7 @@ class ProxyServer:
 
 
     def toJson(self):
-        return {
+        re = {
             "address": self.address,
             "port": self.port,
             "location": self.location,
@@ -51,3 +52,4 @@ class ProxyServer:
             "test_time": self.test_time,
             "hidden": self.hidden
         }
+        return re
