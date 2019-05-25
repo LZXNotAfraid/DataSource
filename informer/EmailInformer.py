@@ -4,7 +4,7 @@
 
 import smtplib
 from email.mime.text import MIMEText
-
+from . import sec
 
 
 
@@ -12,10 +12,10 @@ from email.mime.text import MIMEText
 if __name__ == "__main__":
     print("Test emailing")
     msg = MIMEText("send by python smtplib", "plain", "utf-8")
-    sender = ""
-    password = ""
-    receiver = ""
-    smtp_server = "smtp.sina.cn"
+    sender = sec.SENDER
+    password = sec.PASS
+    receiver = "632814252@qq.com"
+    smtp_server = "smtp.163.com"
     msg["From"] = sender
     msg["To"] = receiver
     msg["Subject"] = 'from Bot'
